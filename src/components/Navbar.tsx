@@ -24,30 +24,30 @@ const Navbar: React.FC = () => {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
         isScrolled
-          ? 'bg-gradient-to-r from-[#001f4d] via-[#002966] to-[#003366] shadow-xl py-4'
-          : 'bg-gradient-to-r from-[#001f4d] via-[#002966] to-[#003366] py-6'
+          ? 'bg-gradient-to-r from-[#001f4d] via-[#002966] to-[#003366] shadow-xl py-3'
+          : 'bg-gradient-to-r from-[#001f4d] via-[#002966] to-[#003366] py-4'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between">
           {/* Logo and App Name */}
           <Link to="/" className="flex items-center">
-            <Zap className="h-10 w-10 text-white" />
-            <span className="ml-3 text-3xl font-bold text-white">
+            <Zap className="h-8 w-8 text-white" />
+            <span className="ml-2 text-2xl font-bold text-white">
               EngageSphere
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-10">
+          <nav className="hidden md:flex items-center space-x-8">
             <Link
               to="/"
-              className="text-white hover:text-yellow-300 hover:scale-110 font-semibold text-lg transition-all duration-200"
+              className="text-white hover:text-yellow-300 hover:scale-105 font-semibold text-base transition-all duration-200"
             >
               Home
             </Link>
             <div className="relative group">
-              <button className="text-white hover:text-yellow-300 hover:scale-110 font-semibold text-lg transition-all duration-200 flex items-center">
+              <button className="text-white hover:text-yellow-300 hover:scale-105 font-semibold text-base transition-all duration-200 flex items-center">
                 Services
               </button>
               <div className="absolute left-0 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform group-hover:translate-y-0 translate-y-2">
@@ -65,7 +65,7 @@ const Navbar: React.FC = () => {
                     <Link
                       key={platform}
                       to={`/services/${platform}`}
-                      className="text-white px-4 py-3 rounded-md capitalize font-semibold transition-colors"
+                      className="text-white px-3 py-2 rounded-md capitalize font-semibold text-sm transition-colors"
                       style={{
                         background: bg.startsWith('linear') ? bg : `${bg}`,
                       }}
@@ -78,13 +78,13 @@ const Navbar: React.FC = () => {
             </div>
             <Link
               to="/learn-more"
-              className="text-white hover:text-yellow-300 hover:scale-110 font-semibold text-lg transition-all duration-200"
+              className="text-white hover:text-yellow-300 hover:scale-105 font-semibold text-base transition-all duration-200"
             >
               Learn More
             </Link>
             <Link
               to="/auth"
-              className="bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white px-7 py-3 rounded-full font-bold text-lg transition-all"
+              className="bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white px-6 py-2.5 rounded-full font-bold text-base transition-all"
             >
               Get Started
             </Link>
@@ -96,30 +96,30 @@ const Navbar: React.FC = () => {
             className="md:hidden text-white"
             aria-label="Toggle menu"
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden bg-gradient-to-b from-[#001f4d] via-[#002966] to-[#003366] border-t border-slate-700 mt-2 py-6">
-          <div className="container mx-auto px-4 flex flex-col space-y-5">
+        <div className="md:hidden bg-gradient-to-b from-[#001f4d] via-[#002966] to-[#003366] border-t border-slate-700 mt-2 py-5">
+          <div className="container mx-auto px-4 flex flex-col space-y-4">
             <Link
               to="/"
-              className="text-white hover:text-yellow-300 font-semibold py-3 text-xl transition-all"
+              className="text-white hover:text-yellow-300 font-semibold py-2 text-lg transition-all"
             >
               Home
             </Link>
             <Link
               to="/learn-more"
-              className="text-white hover:text-yellow-300 font-semibold py-3 text-xl transition-all"
+              className="text-white hover:text-yellow-300 font-semibold py-2 text-lg transition-all"
             >
               Learn More
             </Link>
-            <div className="border-t border-slate-600 pt-4">
-              <p className="text-sm font-semibold text-gray-300 mb-3">Services</p>
-              <div className="grid grid-cols-2 gap-3">
+            <div className="border-t border-slate-600 pt-3">
+              <p className="text-sm font-semibold text-gray-300 mb-2">Services</p>
+              <div className="grid grid-cols-2 gap-2">
                 {[
                   ['youtube', '#FF0000'],
                   ['instagram', 'linear-gradient(to right, #e1306c, #fd1d1d, #f56040)'],
@@ -133,7 +133,7 @@ const Navbar: React.FC = () => {
                   <Link
                     key={platform}
                     to={`/services/${platform}`}
-                    className="text-white text-center py-3 rounded-md capitalize font-semibold text-lg transition-all"
+                    className="text-white text-center py-2 rounded-md capitalize font-semibold text-base transition-all"
                     style={{
                       background: bg.startsWith('linear') ? bg : `${bg}`,
                     }}
@@ -143,10 +143,10 @@ const Navbar: React.FC = () => {
                 ))}
               </div>
             </div>
-            <div className="pt-6">
+            <div className="pt-5">
               <Link
                 to="/auth"
-                className="block text-center bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white px-7 py-3 rounded-full font-bold text-xl transition-all"
+                className="block text-center bg-gradient-to-r from-blue-400 to-blue-600 hover:from-blue-500 hover:to-blue-700 text-white px-6 py-2.5 rounded-full font-bold text-lg transition-all"
               >
                 Get Started
               </Link>

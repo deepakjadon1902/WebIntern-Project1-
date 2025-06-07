@@ -59,29 +59,29 @@ const Home: React.FC = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: 'Sarah Johnson',
-      role: 'Content Creator',
-      content: 'EngageSphere helped me grow my Instagram following by over 10k in just two months. The engagement is real and my reach has increased dramatically!',
-      rating: 5,
-      imageSrc: 'https://images.pexels.com/photos/762020/pexels-photo-762020.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
-    {
-      name: 'Michael Chen',
-      role: 'YouTuber',
-      content: 'I was struggling to get my YouTube channel off the ground until I found EngageSphere. Their services helped me reach monetization requirements in half the time!',
-      rating: 5,
-      imageSrc: 'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    },
-    {
-      name: 'Jessica Miller',
-      role: 'Small Business Owner',
-      content: 'The LinkedIn growth services from EngageSphere have been a game-changer for my business. I\'m connecting with quality leads and seeing real ROI.',
-      rating: 4,
-      imageSrc: 'https://images.pexels.com/photos/733872/pexels-photo-733872.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2'
-    }
-  ];
+const testimonials = [
+  {
+    name: 'Aarav Sharma',
+    role: 'Content Creator',
+    content: 'EngageSphere helped me grow my Instagram following by over 10k in just two months. The engagement is real and my reach has increased dramatically!',
+    rating: 5
+  },
+  {
+    name: 'Meera Patel',
+    role: 'YouTuber',
+    content: 'I was struggling to get my YouTube channel off the ground until I found EngageSphere. Their services helped me reach monetization requirements in half the time!',
+    rating: 5
+  },
+  {
+    name: 'Rahul Verma',
+    role: 'Business Owner',
+    content: 'The LinkedIn growth services from EngageSphere have been a game-changer for my business. I\'m connecting with quality leads and seeing real ROI.',
+    rating: 4
+  }
+];
+
+
+
 
   const faqItems = [
     {
@@ -145,30 +145,31 @@ const Home: React.FC = () => {
       <FAQ items={faqItems} />
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-tr from-[#0b1a3f] via-[#141e55] to-[#1c2a6b]">
-        {/* Blurred glowing golden circles */}
-        <div className="absolute -top-24 -left-24 w-96 h-96 bg-yellow-400 rounded-full opacity-10 blur-3xl"></div>
-        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-yellow-500 rounded-full opacity-10 blur-3xl"></div>
+<section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-tr from-[#0b1a3f] via-[#1a2a6c] to-[#4b6cb7] font-sans">
+  {/* Royal glowing circles for premium effect */}
+  <div className="absolute -top-32 -left-32 w-96 h-96 bg-yellow-300 rounded-full opacity-10 blur-3xl"></div>
+  <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-yellow-400 rounded-full opacity-10 blur-3xl"></div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="bg-gradient-to-br from-yellow-400/30 to-yellow-500/40 backdrop-blur-md border border-yellow-300/30 rounded-2xl overflow-hidden shadow-lg">
-            <div className="px-6 py-12 md:p-16 text-center md:text-left md:flex items-center justify-between">
-              <div className="md:w-2/3 mb-8 md:mb-0">
-                <h2 className="text-3xl md:text-4xl font-bold text-yellow-200 mb-4 drop-shadow-sm">
-                  Ready to Supercharge Your Social Media Presence?
-                </h2>
-                <p className="text-yellow-100 text-lg max-w-xl">
-                  Join thousands of satisfied customers who have transformed their online presence with our premium services.
-                </p>
-              </div>
-              <div>
-                {/* Future CTA Button */}
-                {/* <button className="bg-yellow-400 hover:bg-yellow-500 text-gray-900 font-semibold px-6 py-3 rounded-lg transition-all shadow-md">Get Started</button> */}
-              </div>
-            </div>
-          </div>
+  <div className="container mx-auto px-4 relative z-10">
+    <div className="bg-white/10 backdrop-blur-xl border border-white/30 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300">
+      <div className="px-6 py-12 md:px-16 md:py-20 text-center md:text-left md:flex items-center justify-between gap-10">
+        
+        {/* Left Text Section */}
+        <div className="md:w-2/3">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
+            Ready to Supercharge Your Social Media Presence?
+          </h2>
+          <p className="text-lg md:text-xl text-white/90 max-w-xl leading-relaxed drop-shadow-md">
+            Join thousands of satisfied customers who’ve transformed their reach, influence, and engagement with our premium growth solutions.
+          </p>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
     </div>
   );
 };
