@@ -7,7 +7,7 @@ interface Testimonial {
   name: string;
   role: string;
   content: string;
-  rating: number;
+  rating: number; // 0 to 5
 }
 
 interface TestimonialsProps {
@@ -16,13 +16,16 @@ interface TestimonialsProps {
 
 const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
   return (
-    <section className="py-12 md:py-16 bg-gradient-to-tr from-[#0b1a3f] via-[#1a2a6c] to-[#4b6cb7] font-sans">
-      <div className="container mx-auto px-4">
-        <div className="text-center max-w-3xl mx-auto mb-12 text-white">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4">
+    <section className="py-16 md:py-24 relative bg-gradient-to-tr from-[#0b1a3f] via-[#1a2a6c] to-[#4b6cb7] font-sans text-white">
+      {/* Optional subtle background glow circle */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-yellow-400 rounded-full opacity-10 blur-3xl"></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="text-center max-w-4xl mx-auto mb-20">
+          <h2 className="text-4xl md:text-6xl font-extrabold mb-6">
             What Our Clients Say
-          </h1>
-          <p className="text-gray-200 text-base md:text-lg">
+          </h2>
+          <p className="text-lg md:text-xl font-medium leading-relaxed text-yellow-200">
             Don't just take our word for it. Here's what our satisfied customers have to say about our services.
           </p>
         </div>
@@ -31,9 +34,21 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
           {testimonials.map((testimonial, index) => (
             <GlassContainer
               key={index}
-              className="p-6 h-full bg-white backdrop-blur-md border border-white/20 rounded-3xl transition-transform duration-300 hover:-translate-y-1"
+              className="
+                p-6
+                h-full
+                bg-white/10
+                backdrop-blur-md
+                border border-yellow-300/30
+                rounded-3xl
+                cursor-pointer
+                transition-transform duration-300
+                hover:scale-[1.05]
+                hover:-translate-y-1
+                shadow-lg
+              "
             >
-              <div className="flex flex-col h-full text-black">
+              <div className="flex flex-col h-full text-white">
                 {/* Stars */}
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -41,24 +56,24 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
                       key={i}
                       className={`h-5 w-5 ${
                         i < testimonial.rating
-                          ? 'text-yellow-500 fill-yellow-500'
-                          : 'text-gray-300'
+                          ? 'text-yellow-400 fill-yellow-400'
+                          : 'text-yellow-900/50'
                       }`}
                     />
                   ))}
                 </div>
 
                 {/* Testimonial content */}
-                <p className="mb-6 flex-grow italic text-lg leading-relaxed text-gray-800">
+                <p className="mb-6 flex-grow italic text-lg leading-relaxed">
                   "{testimonial.content}"
                 </p>
 
                 {/* Name and role */}
                 <div className="mt-auto">
-                  <p className="text-2xl font-extrabold text-black mb-1 leading-tight drop-shadow-xl">
+                  <p className="text-2xl font-extrabold mb-1 leading-tight drop-shadow-lg">
                     {testimonial.name}
                   </p>
-                  <p className="text-sm md:text-base text-gray-700">
+                  <p className="text-sm md:text-base text-yellow-200">
                     {testimonial.role}
                   </p>
                 </div>
