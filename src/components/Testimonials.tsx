@@ -64,9 +64,10 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
                 </div>
 
                 {/* Testimonial content */}
-                <p className="mb-6 flex-grow italic text-lg leading-relaxed">
-                  "{testimonial.content}"
-                </p>
+                <p className="mb-6 flex-grow italic text-lg leading-relaxed text-black">
+  "{testimonial.content}"
+</p>
+
 
                 {/* Name and role */}
                 <div className="mt-auto">
