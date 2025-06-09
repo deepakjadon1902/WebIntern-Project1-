@@ -132,26 +132,7 @@ const Blog: React.FC = () => {
           ))}
         </div>
 
-        {/* Newsletter Signup */}
-        <GlassContainer className="mt-12 p-8 text-center">
-          <h2 className="text-2xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-slate-600 mb-6 max-w-2xl mx-auto">
-            Subscribe to our newsletter to receive the latest insights and tips directly in your inbox.
-          </p>
-          <form className="max-w-md mx-auto flex gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-4 py-2 border border-slate-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-            />
-            <button
-              type="submit"
-              className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-6 py-2 rounded-lg font-medium transition-all hover:shadow-lg"
-            >
-              Subscribe
-            </button>
-          </form>
-        </GlassContainer>
+   
       </div>
     </div>
   );
