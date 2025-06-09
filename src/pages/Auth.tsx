@@ -184,7 +184,7 @@
 
 import React, { useState, useRef } from 'react';
 import GlassContainer from '../components/GlassContainer';
-import { Mail, Lock, User, ArrowRight } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight, Eye, EyeOff, Phone, MapPin } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 const Auth: React.FC = () => {
@@ -192,6 +192,9 @@ const Auth: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const bubblesContainerRef = useRef<HTMLDivElement>(null);
 
   const navigate = useNavigate();
@@ -226,7 +229,6 @@ const Auth: React.FC = () => {
       JSON.stringify({ email, name: isSignIn ? 'User' : name })
     );
 
-    // Redirect to originally requested page
     navigate(redirectPath, { replace: true });
   };
 
@@ -241,26 +243,70 @@ const Auth: React.FC = () => {
 
         <form onSubmit={handleSubmit} className="space-y-10">
           {!isSignIn && (
-            <div>
-              <label htmlFor="name" className="block text-base font-semibold mb-3">
-                Full Name
-              </label>
-              <div className="relative">
-                <User className="absolute left-5 top-1/2 -translate-y-1/2 h-7 w-7 text-purple-700" />
-                <input
-                  id="name"
-                  type="text"
-                  value={name}
-                  onChange={handleInputChange(setName)}
-                  className="w-full pl-16 pr-5 py-4 rounded-xl bg-white border border-purple-400 text-black placeholder-purple-600 focus:ring-2 focus:ring-purple-600"
-                  placeholder="John Doe"
-                  required
-                  autoComplete="name"
-                />
+            <>
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-base font-semibold mb-3">
+                  Full Name
+                </label>
+                <div className="relative">
+                  <User className="absolute left-5 top-1/2 -translate-y-1/2 h-7 w-7 text-purple-700" />
+                  <input
+                    id="name"
+                    type="text"
+                    value={name}
+                    onChange={handleInputChange(setName)}
+                    className="w-full pl-16 pr-5 py-4 rounded-xl bg-white border border-purple-400 text-black placeholder-purple-600 focus:ring-2 focus:ring-purple-600"
+                    placeholder="John Doe"
+                    required
+                    autoComplete="name"
+                  />
+                </div>
               </div>
-            </div>
+
+              {/* Phone */}
+              <div>
+                <label htmlFor="phone" className="block text-base font-semibold mb-3">
+                  Phone Number
+                </label>
+                <div className="relative">
+                  <Phone className="absolute left-5 top-1/2 -translate-y-1/2 h-7 w-7 text-purple-700" />
+                  <input
+                    id="phone"
+                    type="tel"
+                    value={phone}
+                    onChange={handleInputChange(setPhone)}
+                    className="w-full pl-16 pr-5 py-4 rounded-xl bg-white border border-purple-400 text-black placeholder-purple-600 focus:ring-2 focus:ring-purple-600"
+                    placeholder="1234567890"
+                    required
+                    autoComplete="tel"
+                  />
+                </div>
+              </div>
+
+              {/* Address */}
+              <div>
+                <label htmlFor="address" className="block text-base font-semibold mb-3">
+                  Address
+                </label>
+                <div className="relative">
+                  <MapPin className="absolute left-5 top-1/2 -translate-y-1/2 h-7 w-7 text-purple-700" />
+                  <input
+                    id="address"
+                    type="text"
+                    value={address}
+                    onChange={handleInputChange(setAddress)}
+                    className="w-full pl-16 pr-5 py-4 rounded-xl bg-white border border-purple-400 text-black placeholder-purple-600 focus:ring-2 focus:ring-purple-600"
+                    placeholder="123 Main Street"
+                    required
+                    autoComplete="street-address"
+                  />
+                </div>
+              </div>
+            </>
           )}
 
+          {/* Email */}
           <div>
             <label htmlFor="email" className="block text-base font-semibold mb-3">
               Email Address
@@ -280,6 +326,7 @@ const Auth: React.FC = () => {
             </div>
           </div>
 
+          {/* Password with Eye Toggle */}
           <div>
             <label htmlFor="password" className="block text-base font-semibold mb-3">
               Password
@@ -288,17 +335,25 @@ const Auth: React.FC = () => {
               <Lock className="absolute left-5 top-1/2 -translate-y-1/2 h-7 w-7 text-purple-700" />
               <input
                 id="password"
-                type="password"
+                type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={handleInputChange(setPassword)}
-                className="w-full pl-16 pr-5 py-4 rounded-xl bg-white border border-purple-400 text-black placeholder-purple-600 focus:ring-2 focus:ring-purple-600"
+                className="w-full pl-16 pr-12 py-4 rounded-xl bg-white border border-purple-400 text-black placeholder-purple-600 focus:ring-2 focus:ring-purple-600"
                 placeholder="••••••••"
                 required
                 autoComplete={isSignIn ? 'current-password' : 'new-password'}
               />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-purple-600 focus:outline-none"
+              >
+                {showPassword ? <EyeOff className="h-6 w-6" /> : <Eye className="h-6 w-6" />}
+              </button>
             </div>
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
             className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 py-5 rounded-xl font-extrabold text-xl tracking-widest shadow-lg text-white flex justify-center items-center"
@@ -308,6 +363,7 @@ const Auth: React.FC = () => {
           </button>
         </form>
 
+        {/* Toggle Sign In / Sign Up */}
         <div className="mt-12 text-center text-purple-900 font-semibold cursor-pointer">
           <button
             onClick={() => setIsSignIn(!isSignIn)}
@@ -320,6 +376,7 @@ const Auth: React.FC = () => {
         </div>
       </GlassContainer>
 
+      {/* Bubble Styles */}
       <style>{`
         .bubble {
           position: absolute;
