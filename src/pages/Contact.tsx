@@ -1,5 +1,3 @@
-
-
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import {
@@ -42,14 +40,16 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_hr10cr9", // ✅ Your service ID
-        "template_k7xmpof", // ✅ Your template ID
+        "service_hr10cr9", // ✅ Your EmailJS service ID
+        "template_k7xmpof", // ✅ Your EmailJS template ID
         formRef.current!,
-        "hRvRaFAOHU2s1ZEeZ" // ✅ Your public key
+        "hRvRaFAOHU2s1ZEeZ" // ✅ Your EmailJS public key
       )
       .then(
         (result) => {
-          alert(`Thank you, ${formData.user_name}! Your request has been sent.`);
+          alert(
+            `Thank you, ${formData.user_name}! Your request has been sent.\nWe'll reach out to you at ${formData.user_email}.`
+          );
           setFormData({
             user_name: "",
             user_email: "",
